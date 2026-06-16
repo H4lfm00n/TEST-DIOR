@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-16T00:00:00Z",
+  "title": "Design System: Toyota Supra — Reference Site",
+  "extensions": {
+    "colorMeta": {
+      "scarlet":         { "role": "primary",  "displayName": "Racing Scarlet",    "canonical": "#dc2626", "tonalRamp": ["#2d0707","#5e0f0f","#961818","#c92020","#dc2626","#e75555","#f09090","#fad8d8"] },
+      "scarlet-deep":    { "role": "primary",  "displayName": "Scarlet Deep",      "canonical": "#b91c1c", "tonalRamp": ["#200505","#4a0c0c","#7a1414","#9e1a1a","#b91c1c","#d44444","#e88888","#f7d0d0"] },
+      "ink":             { "role": "neutral",  "displayName": "Near-Black Ink",    "canonical": "#111110", "tonalRamp": ["#000000","#080807","#111110","#2c2c2b","#4a4a49","#6f6f6e","#a0a09f","#d4d4d3"] },
+      "ink-muted":       { "role": "neutral",  "displayName": "Warm Mid-Grey",     "canonical": "#6f6f6e", "tonalRamp": ["#1a1a1a","#2e2e2e","#444443","#5a5a59","#6f6f6e","#8e8e8d","#b0b0af","#d8d8d7"] },
+      "surface":         { "role": "neutral",  "displayName": "Pure Surface",      "canonical": "#ffffff", "tonalRamp": ["#e0e0e0","#e8e8e8","#f0f0f0","#f5f5f5","#f9f9f8","#fafafa","#fcfcfc","#ffffff"] },
+      "canvas":          { "role": "neutral",  "displayName": "Off-White Canvas",  "canonical": "#f9f9f8", "tonalRamp": ["#d8d8d7","#e2e2e1","#ebebea","#f2f2f1","#f9f9f8","#fafafa","#fdfdfc","#ffffff"] },
+      "dark-canvas":     { "role": "neutral",  "displayName": "Engine Block",      "canonical": "#0c0c0c", "tonalRamp": ["#000000","#050505","#0c0c0c","#161616","#252525","#383837","#555554","#888886"] },
+      "dark-surface":    { "role": "neutral",  "displayName": "Carbon Surface",    "canonical": "#161616", "tonalRamp": ["#050505","#0a0a0a","#111111","#161616","#202020","#2e2e2e","#444444","#666665"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display",  "purpose": "Hero H1 only. Cormorant Garant at cinematic scale. Never used below 3rem or outside the hero section." },
+      "headline": { "displayName": "Headline", "purpose": "Section and card headers. Inter uppercase with wide tracking. Creates structure through typography, not size alone." },
+      "body":     { "displayName": "Body",     "purpose": "All prose. Inter 400 at 0.95rem. Capped at 65ch line length. Always --muted color." },
+      "label":    { "displayName": "Label",    "purpose": "Form labels, years, spec table headers. Smallest text. Always uppercase, always Inter 600." }
+    },
+    "shadows": [
+      { "name": "ambient",   "value": "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)",   "purpose": "Cards and inputs at rest. Barely perceptible — lifts surface off canvas." },
+      { "name": "lifted",    "value": "0 4px 6px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.04)",   "purpose": "Cards on hover. Responds to user attention." },
+      { "name": "focus-ring","value": "0 0 0 3px color-mix(in srgb, #dc2626 12%, transparent)",    "purpose": "Inputs and interactive elements on focus. Scarlet-tinted, on-brand." }
+    ],
+    "motion": [
+      { "name": "ease-out-strong", "value": "cubic-bezier(0.23, 1, 0.32, 1)",   "purpose": "Primary easing. Enters fast, settles smooth. All UI transitions." },
+      { "name": "ease-in-out",     "value": "cubic-bezier(0.77, 0, 0.175, 1)",  "purpose": "On-screen movement. Used for scroll reveals and panel transitions." },
+      { "name": "duration-fast",   "value": "150ms",  "purpose": "Color and border transitions. Focus states." },
+      { "name": "duration-base",   "value": "200ms",  "purpose": "Button hover, card hover." },
+      { "name": "duration-slow",   "value": "500ms",  "purpose": "Scroll reveal transitions." }
+    ],
+    "breakpoints": [
+      { "name": "sm",  "value": "640px" },
+      { "name": "md",  "value": "768px" },
+      { "name": "lg",  "value": "900px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA. Racing Scarlet background, presses down on :active.",
+      "html": "<button class=\"ds-btn-primary\">Submit</button>",
+      "css": ".ds-btn-primary { background: #dc2626; color: #ffffff; border: none; border-radius: 6px; padding: 0.65rem 1.25rem; font-family: Inter, system-ui, sans-serif; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; transition: background 150ms cubic-bezier(0.23,1,0.32,1), transform 160ms cubic-bezier(0.23,1,0.32,1); } .ds-btn-primary:hover { background: #b91c1c; } .ds-btn-primary:active { transform: scale(0.97); } .ds-btn-primary:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input-default",
+      "description": "Form field. Recessed into the canvas, accent focus ring.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Type something...\" />",
+      "css": ".ds-input { width: 100%; background: #f9f9f8; color: #111110; border: 1px solid #e4e4e3; border-radius: 6px; padding: 0.65rem 0.9rem; font-family: Inter, system-ui, sans-serif; font-size: 0.9rem; outline: none; transition: border-color 150ms cubic-bezier(0.23,1,0.32,1), box-shadow 150ms cubic-bezier(0.23,1,0.32,1); } .ds-input::placeholder { color: #6f6f6e; } .ds-input:focus { border-color: #dc2626; box-shadow: 0 0 0 3px color-mix(in srgb, #dc2626 12%, transparent); }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Primary content container. Lifted off canvas, responds to hover.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">A80</h3><p class=\"ds-card-body\">The legend. 2JZ-GTE, 320 hp stock, 1000+ hp potential.</p></div>",
+      "css": ".ds-card { background: #ffffff; border: 1px solid #e4e4e3; border-radius: 10px; padding: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04); transition: box-shadow 200ms cubic-bezier(0.23,1,0.32,1), transform 200ms cubic-bezier(0.23,1,0.32,1); } @media (hover: hover) and (pointer: fine) { .ds-card:hover { box-shadow: 0 4px 6px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.04); transform: translateY(-1px); } } .ds-card-title { font-family: Inter, system-ui, sans-serif; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #dc2626; margin-bottom: 0.4rem; } .ds-card-body { font-family: Inter, system-ui, sans-serif; font-size: 0.88rem; color: #6f6f6e; margin: 0; line-height: 1.6; }"
+    },
+    {
+      "name": "Tab Button",
+      "kind": "nav",
+      "refersTo": "tab-btn",
+      "description": "Navigation tab. Active state uses scarlet underline.",
+      "html": "<nav class=\"ds-tabs\"><button class=\"ds-tab ds-tab--active\">About</button><button class=\"ds-tab\">Questions</button><button class=\"ds-tab\">Contact</button></nav>",
+      "css": ".ds-tabs { display: flex; border-bottom: 1px solid #e4e4e3; gap: 0; } .ds-tab { background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 1rem 1.25rem; font-family: Inter, system-ui, sans-serif; font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6f6f6e; cursor: pointer; transition: color 150ms cubic-bezier(0.23,1,0.32,1), border-color 150ms cubic-bezier(0.23,1,0.32,1), transform 160ms cubic-bezier(0.23,1,0.32,1); } @media (hover: hover) and (pointer: fine) { .ds-tab:hover { color: #111110; } } .ds-tab:active { transform: scale(0.97); } .ds-tab--active { color: #111110; border-bottom-color: #dc2626; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Precision Machine",
+    "overview": "Every pixel earns its place. This system is engineered like the 2JZ engine it celebrates — overbuilt, exact, and purposeful. Nothing is decorative. Nothing is accidental. The restraint is the craft.\n\nThe palette is near-monochromatic with a single, deliberate injection of scarlet. The type sets hierarchy through scale and weight contrast, not decorative flourishes. Motion is mechanical — smooth and inevitable, never playful.\n\nThis system explicitly rejects: cluttered car-forum energy, Fast & Furious neon-and-flame aesthetics, the warm beige AI-default, and corporate brochure stiffness.",
+    "keyCharacteristics": [
+      "Near-monochromatic base with a single scarlet signature",
+      "Display serif (Cormorant Garant) reserved for hero moments only",
+      "Inter for all functional text — no exceptions",
+      "Layered depth through shadow vocabulary",
+      "Dark/light theme parity — both modes are first-class",
+      "Scale does the work type weight can't"
+    ],
+    "rules": [
+      { "name": "The One Voice Rule",        "body": "Racing Scarlet appears on ≤15% of any given screen. If more than one element per viewport is scarlet, one of them doesn't need to be.",        "section": "colors" },
+      { "name": "The Contrast Floor Rule",   "body": "Muted grey on near-white is the single biggest contrast failure. Never lighten --muted or --canvas from their defined values.",                "section": "colors" },
+      { "name": "The Cormorant Ceiling Rule","body": "Cormorant Garant appears exactly once per page: the hero H1. A second serif instance dilutes both.",                                          "section": "typography" },
+      { "name": "The Uppercase Contract",    "body": "Uppercase signals structure, not decoration. Running prose, button text, and error messages are never uppercase.",                             "section": "typography" },
+      { "name": "The State Shadow Rule",     "body": "Shadows communicate state, not decoration. Cards gain lift on hover. A card with the same shadow at rest and hover is not responding.",      "section": "elevation" }
+    ],
+    "dos": [
+      "Use Racing Scarlet exclusively for interactive elements and active states",
+      "Reserve Cormorant Garant for the hero H1 only",
+      "Apply scale(0.97) on :active to every pressable element",
+      "Use color-mix(in srgb, #dc2626 12%, transparent) for focus rings",
+      "Test contrast in both light and dark mode — --muted on --canvas must clear 4.5:1",
+      "Specify exact CSS properties in transitions (never transition: all)",
+      "Gate hover animations behind @media (hover: hover) and (pointer: fine)"
+    ],
+    "donts": [
+      "Don't use a generic car forum aesthetic — cluttered, inline borders, zero visual hierarchy",
+      "Don't use neon colors, flame graphics, or over-the-top tuner energy",
+      "Don't use warm beige, sand, cream, or parchment as body background",
+      "Don't exceed 12px border-radius on cards or containers",
+      "Don't apply Cormorant Garant to body text, section headers, or card titles",
+      "Don't use uppercase on body text, button labels, or error messages",
+      "Don't add a second saturated color — scarlet has no peers",
+      "Don't pair border: 1px solid with box-shadow blur ≥16px on the same element",
+      "Don't use border-left greater than 1px as a colored accent stripe",
+      "Don't use gradient text (background-clip: text)"
+    ]
+  }
+}
